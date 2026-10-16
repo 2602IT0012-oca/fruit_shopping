@@ -25,6 +25,11 @@
     <%= f.label :パスワードの確認 %><br>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :age, "年齢" %><br />
+    <%= f.number_field :age, autofocus: true %>
+  </div>
 
   <div class="field">
     <%= f.label :管理者フラグ %><br>

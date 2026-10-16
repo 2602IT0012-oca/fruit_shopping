@@ -67,4 +67,9 @@ class UsersController < ApplicationController
     def user_params
       params.expect(user: [ :name, :age, :password, :email, :password_confirmation ]) # ← password_confirmationを追加 
     end
+
+    def user_params
+      # :name に加えて、新しく :photo を受け取ることを許可（追加）
+      params.require(:user).permit(:name, :photo)
+    end
 end

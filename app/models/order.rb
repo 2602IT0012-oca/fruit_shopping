@@ -4,3 +4,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])   # URLから商品を取得
   end
 end
+class Order < ApplicationRecord
+  belongs_to :user
+  belongs_to :product
+end

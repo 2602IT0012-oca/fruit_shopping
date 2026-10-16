@@ -45,4 +45,9 @@
     <!-- フォーム送信ボタン -->
     <%= form.submit %>
   </div>
+
+  <div class="field">
+    <%= form.label :photo, "プロフィール写真", style: "display: block" %>
+    <%= form.file_field :photo %>
+  </div>
 <% end %>

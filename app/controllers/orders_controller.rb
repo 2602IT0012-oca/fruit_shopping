@@ -11,13 +11,14 @@ class OrdersController < ApplicationController
   # 注文内容の確認画面
   def confirm
     @order = Order.new(order_params)          # フォームから送信された注文情報を取得
+    @order.user_id = current_user.id          # 現在ログインしているユーザーのIDをセット
     @product = Product.find(order_params[:product_id]) # 注文対象の商品を取得
 
     if @order.valid?
-        @order.total_price = cal_total_price(@product.price, @order.count) # 合計金額を計算して設定
-      else
+      @order.total_price = cal_total_price(@product.price, @order.count) # 合計金額を計算して設定
+    else
       # バリデーションNGなら入力画面に戻る
-        render :new and return
+      render :new and return
     end
   end
   
